@@ -3,13 +3,19 @@ import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import IconSearch from '@expo/vector-icons/Fontisto';
 import {ThemeContext} from '../context/theme';
 
-const SearchBar = ({onPress}) => {
+const SearchBar = ({onBlur,onPress,onFocus}) => {
   const {theme} = useContext(ThemeContext);
 
   const [query, setQuery] = useState('');
   return (
     <View style={[styles.container, {borderColor: theme.fontColor}]}>
       <TextInput
+      onFocus={()=>{
+        onFocus()
+      }}
+      onBlur={()=>{
+        onBlur()
+      }}
         onChangeText={text => {
           setQuery(text);
         }}
