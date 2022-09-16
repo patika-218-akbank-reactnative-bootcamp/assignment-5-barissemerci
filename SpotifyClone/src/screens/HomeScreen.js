@@ -19,7 +19,7 @@ const HomeScreen = () => {
 
   const  renderSongCard=({item})=>{
       return(
-        <SongCard ></SongCard>
+        <SongCard photo={item.md5_image} singer={item.artist.name} name={item.title}></SongCard>
       )
     }
 
@@ -50,6 +50,7 @@ const HomeScreen = () => {
       )
       .then(response => {
         setTopTracks(response.data.data);
+        console.log("topTracks",topTracks)
 
       });
 
@@ -69,7 +70,7 @@ const HomeScreen = () => {
        columnWrapperStyle={styles.row}
      />
       </View>
-      <Text>Top Tracks</Text>
+      <Text style={styles.titleTextStyle}>Top Tracks</Text>
       <FlatList style={styles.flatListStyle}
        data={topTracks}
        keyExtractor={item => item.id}
