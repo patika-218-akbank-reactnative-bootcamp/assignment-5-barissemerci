@@ -74,7 +74,6 @@ export default GenreSongScreen
 const styles = StyleSheet.create({
 
   flatListStyle:{
-    backgroundColor:'gray',
     flexGrow: 0,
     marginBottom:90
   

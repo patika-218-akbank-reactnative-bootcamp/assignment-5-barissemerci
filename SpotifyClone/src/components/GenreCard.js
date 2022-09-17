@@ -16,7 +16,7 @@ export default GenreCard
 const styles = StyleSheet.create({
 container:{
     width:'40%',
-    backgroundColor:'yellow',
+    backgroundColor:'#81b71a',
   height:40,
   marginTop:5,
   marginBottom:5,

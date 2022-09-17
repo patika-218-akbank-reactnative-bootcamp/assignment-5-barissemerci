@@ -132,7 +132,6 @@ export default SearchScreen
 const styles = StyleSheet.create({
 
   flatListStyle:{
-    backgroundColor:'gray',
     flexGrow: 0,
     marginBottom:50
   

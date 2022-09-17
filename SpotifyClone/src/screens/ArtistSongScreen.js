@@ -63,7 +63,6 @@ export default ArtistSongScreen
 const styles = StyleSheet.create({
 
   flatListStyle:{
-    backgroundColor:'gray',
     flexGrow: 0,
     marginBottom:90
   

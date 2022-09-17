@@ -139,7 +139,6 @@ width:'100%',height:'100%',
 titleTextStyle:{fontSize:30,fontWeight:'bold',marginTop:30,
 marginLeft:20},
 flatListStyle:{
-  backgroundColor:'gray',
   flexGrow: 0,
 
 },
