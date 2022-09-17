@@ -1,9 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
-const GenreCard = ({name}) => {
+const GenreCard = ({id,name,onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={()=>{
+      onPress(id,name)
+    }} style={styles.container}>
       <Text>{name}</Text>
     </TouchableOpacity>
   )
