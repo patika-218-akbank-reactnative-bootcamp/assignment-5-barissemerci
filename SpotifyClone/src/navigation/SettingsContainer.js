@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SettingsScreen from '../screens/SettingsScreen';
 import ThemeOptionsScreen from '../screens/ThemeOptionsScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
+import LikedScreen from '../screens/LikedScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ export default function SettingsContainer() {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="LikedScreen" component={LikedScreen} />
       <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
       <Stack.Screen name="ThemeOptionsScreen" component={ThemeOptionsScreen} />
       <Stack.Screen name="EditProfileScreen" component={EditProfileScreen} />
