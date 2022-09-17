@@ -4,22 +4,67 @@ import { useNavigation } from '@react-navigation/core'
 import axios from 'axios';
 import GenreCard from '../components/GenreCard';
 import SongCard from '../components/SongCard';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const HomeScreen = () => {
-    const navigation= useNavigation()
     const [genreList,setGenreList]=useState(null)
     const [topTracks,setTopTracks]=useState(null)
+    const [favoriteSongs,setfavoriteSongs]=useState([])
+    const navigation = useNavigation();
+
+    const navigateGenreSongScreen=(id,name)=>{
+
+      navigation.navigate('GenreSongScreen', {
+        genreId: id,
+        genreName:name
+  
+      });
+  
+  
+    }
+  
+  
 
     const renderGenreCard=({item})=>{
       return(
-       <GenreCard name={item.name}></GenreCard>
+       <GenreCard id={item.id} name={item.name} onPress={navigateGenreSongScreen}  ></GenreCard>
       )
     }
 
+    const handleFavorite = async (id) => {
+      try {
+        setfavoriteSongs([...favoriteSongs,topTracks.filter(item => item.id == id)])
+        const jsonValue = JSON.stringify(favoriteSongs);
+  
+        await AsyncStorage.setItem('favorite', jsonValue);
+  
+      } catch (e) {
+        // saving error
+        console.log(e)
+      }
+    };
+
+    const isFavorite=(id)=>{
+      console.log("id",id)
+      console.log('favoriteSongs.filter(item => item.id == id)',favoriteSongs.filter(item => {
+        console.log("baris",favoriteSongs)
+        console.log("item.id",item.id)
+        console.log("id",id)
+        item.id === id}))
+
+      if(favoriteSongs.filter(item => item.id === id).length===1){
+        return 1
+      }
+      else{
+        return 0
+      }
+    }
+
+
   const  renderSongCard=({item})=>{
       return(
-        <SongCard photo={item.md5_image} singer={item.artist.name} name={item.title}></SongCard>
+        <SongCard isFavorite={isFavorite(item.id)} onPress={handleFavorite} id={item.id} photo={item.md5_image} singer={item.artist.name} name={item.title}></SongCard>
       )
     }
 
