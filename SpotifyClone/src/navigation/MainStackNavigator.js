@@ -3,6 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import {useSelector, useDispatch} from 'react-redux';
 import SignupScreen from '../screens/SignupScreen';
+import ArtistSongScreen from '../screens/ArtistSongScreen';
+import GenreSongScreen from '../screens/GenreSongScreen';
 import HomeScreen from '../screens/HomeScreen';
 import {setUser} from '../redux/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -30,7 +32,6 @@ const MainStackNavigator = () => {
           <React.Fragment>
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="SignupScreen" component={SignupScreen} />
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
 
           </React.Fragment>
         ) : (
@@ -38,6 +39,15 @@ const MainStackNavigator = () => {
             <Stack.Screen
               name="BottomTabNavigator"
               component={BottomTabNavigator}
+            />
+            <Stack.Screen
+              name="GenreSongScreen"
+              component={GenreSongScreen}
+            />
+
+            <Stack.Screen
+              name="ArtistSongScreen"
+              component={ArtistSongScreen}
             />
             
           </React.Fragment>
