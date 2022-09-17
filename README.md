@@ -1,3 +1,4 @@
+# Spotify Clone
 
 Spotify Clone kayıt ve giriş işlemlerinin Firebase Authentication ile yapıldığı bir projedir. Kullanıcı giriş yaptıktan sonra 4 adet müzik türünün bulunduğu ve altında da son günlerde en çok dinlenilen şarkılarının bulunduğu bir sayfa karşılar. Proje henüz bitmedi. Geliştirilecekleri aşağıya maddeler şeklinde ekliyorum.
 
