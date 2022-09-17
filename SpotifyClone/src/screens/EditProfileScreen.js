@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState, useContext} from 'react';
 import {
   StyleSheet,
@@ -6,10 +7,10 @@ import {
   View,
   Text,
 } from 'react-native';
-import {ThemeContext} from '../context/theme';
 import {useSelector, useDispatch} from 'react-redux';
+
+import {ThemeContext} from '../context/theme';
 import {setUser} from '../redux/user';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const EditProfileScreen = props => {
   const {user} = useSelector(state => state.user);
@@ -37,9 +38,9 @@ const EditProfileScreen = props => {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      username: username,
-      password: password,
-      mail: mail,
+      username,
+      password,
+      mail,
     }),
   };
 
@@ -49,14 +50,6 @@ const EditProfileScreen = props => {
     dispatch(setUser(JSON.stringify(list))); //redux
 
     console.log("EditProfileScreen Redux'a atıldı:", JSON.stringify(list));
-
-    storeData(list); //asyncstorage
-    fetch('http://10.0.2.2:3000/users/' + id, requestOptions); //json-server
-
-    showMessage({
-      message: 'Saved successfully',
-      type: 'success',
-    });
   };
 
   return (
@@ -87,7 +80,7 @@ const EditProfileScreen = props => {
         </Text>
         <TextInput
           value={password}
-          secureTextEntry={true}
+          secureTextEntry
           style={[
             styles.textInputStyles,
             {borderColor: theme.fontColor, color: theme.fontColor},
@@ -100,10 +93,10 @@ const EditProfileScreen = props => {
         style={[styles.buttonStyle, {borderColor: theme.fontColor}]}
         onPress={() => {
           const userNew = {
-            username: username,
-            password: password,
-            mail: mail,
-            id: id,
+            username,
+            password,
+            mail,
+            id,
           };
           handleUser(userNew);
         }}>

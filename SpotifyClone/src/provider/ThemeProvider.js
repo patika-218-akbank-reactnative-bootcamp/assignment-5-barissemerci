@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {ThemeContext} from '../context/theme';
+
 import dark from '../constants/theme/dark.js';
 import light from '../constants/theme/light.js';
+import {ThemeContext} from '../context/theme';
 
 const ThemeProvider = ({children}) => {
   const [theme, setTheme] = useState(light);
@@ -14,7 +15,7 @@ const ThemeProvider = ({children}) => {
   };
 
   return (
-    <ThemeContext.Provider 
+    <ThemeContext.Provider
       value={{theme, setTheme, toggleTheme: handleToggleTheme}}>
       {children}
     </ThemeContext.Provider>

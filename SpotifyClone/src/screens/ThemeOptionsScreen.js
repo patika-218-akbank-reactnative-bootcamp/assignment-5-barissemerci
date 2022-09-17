@@ -1,8 +1,8 @@
+import Icon from '@expo/vector-icons/Feather';
 import React, {useContext} from 'react';
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+
 import {ThemeContext} from '../context/theme';
-import IconLight from '@expo/vector-icons/Feather';
-import IconDark from '@expo/vector-icons/Feather';
 
 const ThemeOptionsScreen = () => {
   const {theme, toggleTheme} = useContext(ThemeContext);
@@ -16,7 +16,7 @@ const ThemeOptionsScreen = () => {
             onPress={() => {
               toggleTheme('light');
             }}>
-            <IconLight color={theme.fontColor} size={100} name="sun" />
+            <Icon color={theme.fontColor} size={100} name="sun" />
           </TouchableOpacity>
 
           <Text style={[styles.textStyle, {color: theme.fontColor}]}>
@@ -30,7 +30,7 @@ const ThemeOptionsScreen = () => {
             onPress={() => {
               toggleTheme('dark');
             }}>
-            <IconDark color={theme.fontColor} size={100} name="moon" />
+            <Icon color={theme.fontColor} size={100} name="moon" />
           </TouchableOpacity>
 
           <Text style={[styles.textStyle, {color: theme.fontColor}]}>

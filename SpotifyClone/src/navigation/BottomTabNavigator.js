@@ -1,11 +1,12 @@
-import React from 'react';
-import SearchScreen from '../screens/SearchScreen';
-import HomeScreen from '../screens/HomeScreen';
-import SettingsContainer from './SettingsContainer';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import IconHome from '@expo/vector-icons/Octicons';
-import IconSearch from '@expo/vector-icons/Fontisto';
 import IconSettings from '@expo/vector-icons/Feather';
+import IconSearch from '@expo/vector-icons/Fontisto';
+import IconHome from '@expo/vector-icons/Octicons';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+
+import HomeScreen from '../screens/HomeScreen';
+import SearchScreen from '../screens/SearchScreen';
+import SettingsContainer from './SettingsContainer';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,30 +22,30 @@ export default function BottomTabNavigator() {
       <Tab.Screen
         options={{
           tabBarIcon: ({size}) => (
-            <IconHome name="home" color={'black'} size={size} />
+            <IconHome name="home" color="black" size={size} />
           ),
         }}
-        name={'HomeScreen'}
+        name="HomeScreen"
         component={HomeScreen}
       />
       <Tab.Screen
         options={{
           tabBarIcon: ({size}) => (
-            <IconSearch name="search" color={'black'} size={size} />
+            <IconSearch name="search" color="black" size={size} />
           ),
           tabBarLabel: 'Search',
         }}
-        name={'SearchScreen'}
+        name="SearchScreen"
         component={SearchScreen}
       />
       <Tab.Screen
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({size}) => (
-            <IconSettings name="settings" color={'black'} size={size} />
+            <IconSettings name="settings" color="black" size={size} />
           ),
         }}
-        name={'SettingsContainer'}
+        name="SettingsContainer"
         component={SettingsContainer}
       />
     </Tab.Navigator>

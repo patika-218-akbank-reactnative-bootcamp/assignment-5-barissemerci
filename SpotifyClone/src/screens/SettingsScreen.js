@@ -1,18 +1,24 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 import React, {useContext} from 'react';
 import {StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import {useSelector, useDispatch} from 'react-redux';
-import {setUser} from '../redux/user';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import {auth} from '../../firebase';
 import {ThemeContext} from '../context/theme';
+import {setUser} from '../redux/user';
 
 const SettingsScreen = () => {
   const {theme} = useContext(ThemeContext);
 
-  const handleSignout=()=>{
-    auth.signOut().then(()=>{
-        navigation.replace('LoginScreen')}).catch(error=>alert(error.message))}
+  const handleSignout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace('LoginScreen');
+      })
+      .catch(error => alert(error.message));
+  };
 
   const navigation = useNavigation();
 

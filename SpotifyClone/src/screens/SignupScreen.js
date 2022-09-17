@@ -1,3 +1,5 @@
+import IconMovie from '@expo/vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/native';
 import React, {useState, useContext} from 'react';
 import {
   StyleSheet,
@@ -8,10 +10,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../context/theme';
 
-import IconMovie from '@expo/vector-icons/MaterialCommunityIcons';
+import {ThemeContext} from '../context/theme';
 
 const SignupScreen = props => {
   const {theme} = useContext(ThemeContext);
@@ -32,9 +32,9 @@ const SignupScreen = props => {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      username: username,
-      password: password,
-      mail: mail,
+      username,
+      password,
+      mail,
     }),
   };
   const handleSignup = () => {
@@ -85,7 +85,7 @@ const SignupScreen = props => {
         />
 
         <TextInput
-          secureTextEntry={true}
+          secureTextEntry
           value={password}
           onChangeText={passwordNew => setPassword(passwordNew)}
           placeholder="Password"
@@ -97,7 +97,7 @@ const SignupScreen = props => {
         />
 
         <TextInput
-          secureTextEntry={true}
+          secureTextEntry
           value={passwordAgain}
           onChangeText={passwordAgainNew => setPasswordAgain(passwordAgainNew)}
           placeholder="Password Again"
